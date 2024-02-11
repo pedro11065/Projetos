@@ -9,13 +9,13 @@ def city():
     kids()   
 
 def kids():   
-    kids = input("Do you have children's?(y/n)")
-    if kids == "y":
-        kids= True
+    kids_in = input("Do you have children's?(y/n)")
+    if kids_in == "y":
+        kids_in = True
         kids_num()      
 
     else:
-        kids = False
+        kids_in = False
         kids_num()  
 
 def kids_num():
@@ -31,12 +31,9 @@ def kids_name():
         print(*kids_name_list, sep='\n')
         
     kids_name_clean(kids_name_in)
-    
-    
-   
+          
 age() 
 
-
-    
+def data(age_,city_,kids_,kids_count,kids_n):  
 
 
