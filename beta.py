@@ -1,6 +1,7 @@
 #aprendendo a usar defs
 import sys
 import time
+import os
 
 def answers():
     age_in = input("How old are you?")
@@ -39,46 +40,79 @@ def verify(answers_data):
         kids_name = answers_data[4]#len = kids_qt, only str, no space
         kids_name_list = kids_name.split(",")
 
-        int(age_in)
-        str(city_in)
-        str(kids_bool)
-        int(kids_qt)
-        str(kids_name)
-        
+        try:
+            age_in = int(age_in)
+        except:
+            os.system('cls' if os.name == 'nt' else 'clear') #limpa o terminal
+            print(f"{age_in} isn´t a number")
+            sys.exit()
+        try:
+            str(city_in)
+        except:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"{city_in} isn´t a city")
+            sys.exit()
+        try:
+            str(kids_bool)
+        except:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("something is wrong, use 'y' for yes and 'n' to no.")
+            sys.exit()
+        try:
+            int(kids_qt)
+        except:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"{kids_qt} isn´t a number")   
+            sys.exit()
+        try:
+            verify_name = len(kids_name_list)
+        except:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"Something went wrong with your kids name...")
+            sys.exit()
+
         #escada else -> if
+        if age_in <= 15:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("too young, you are lying my friend.")
+            sys.exit()
+        elif age_in >= 99:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("no way u are so old")
+            sys.exit()
 
         if (len(city_in)) <= 3:
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("""
-            Name to short to be a city""")
-            sys.exit()
-        
+                  Name to short to be a city""")
+            sys.exit()      
         else:
             city_in.strip()
 
         if kids_bool == "y" or "Y":
             kids_bool = True  
-
         else:
-            kids_bool = False
-        
+            kids_bool = False  
+
         if kids_qt == 10:
+          os.system('cls' if os.name == 'nt' else 'clear')
           print("are you sure about that?")
           sys.exit()
 
         if (len(kids_name_list)) > kids_qt:
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("You put more kids names than the number of kids you have.")
             sys.exit()
-
         elif (len(kids_name_list)) < kids_qt:
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("You put less kids names than the number of kids you have.")
             sys.exit()
-
         else:  
             count = 1
-             #         0      1        2       3           4
-         
-    return age_in,city_in,kids_bool,kids_qt,kids_name_list
-    
+            
+             #         0      1        2       3           4      
+    return age_in,city_in,kids_bool,kids_qt,kids_name_list  
+ 
 def dados(answers_data):   # Passa os dados de answers como argumento
     age_in, city_in, kids_bool, kids_qt, kids_name_list = answers_data
 
