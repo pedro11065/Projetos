@@ -1,1 +1,6 @@
-
+kids_name= str(input("What is/are they/his/her name?"))
+kids_name_list = kids_name.split()
+kids_name_list = kids_name.split(",")
+print(*kids_name_list)
+print(len(kids_name_list))
+print(*kids_name_list, sep='\n')
