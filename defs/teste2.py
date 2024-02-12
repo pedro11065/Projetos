@@ -1,32 +1,37 @@
-def data():
+def answer():
     age = int(input("How old are you?"))
-
+                        
     city = str(input("Where were you born?"))
-    #return city
                     
     kids = input("Do you have children's?(y/n)")
     if kids == "y":
         kids = True
-            #return kids                       
+                        
     else:
         kids = False
-            #return kids       
                     
     kids_num = int(input("How much?"))
-        #return kids_num
             
-    kids_name_in = str(input("What is/are they/his/her name?"))
-    kids_name_list = kids_name_in.split()
-    kids_name_list = kids_name_in.split(",")
-        #return kids_name
-    print(kids_name_list)
+    kids_name = str(input("What is/are they/his/her name?"))
+    kids_name_list = kids_name.split()
+    kids_name_list = kids_name.split(",")
+    print(kids_name_list,sep='\n')
 
-    def m_age(age=age):
-        age= age + age
-        print(age)
+    def data_load(
+        age=age,
+        city=city,
+        kids=kids,
+        kids_num=kids_num,
+        kids_name_list=kids_name_list):
 
-    m_age(age)
+        print(age,city,kids,kids_num)
+        print(*kids_name_list, sep='\n')
 
-data()
+    data_load()
+
+answer()
+
+
+
 
 
